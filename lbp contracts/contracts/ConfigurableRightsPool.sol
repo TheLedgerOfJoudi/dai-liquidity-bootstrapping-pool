@@ -335,20 +335,20 @@ contract ConfigurableRightsPool is PCToken, BalancerOwnable, BalancerReentrancyG
         createPoolInternal(initialSupply);
     }
 
-    /**
-     * @notice Create a new Smart Pool
-     * @dev Delegates to internal function
-     * @param initialSupply starting token balance
-     */
-    function createPool(uint initialSupply)
-        external
-        onlyOwner
-        logs
-        lock
-        virtual
-    {
-        createPoolInternal(initialSupply);
-    }
+    // /**
+    //  * @notice Create a new Smart Pool
+    //  * @dev Delegates to internal function
+    //  * @param initialSupply starting token balance
+    //  */
+    // function createPool(uint initialSupply)
+    //     external
+    //     onlyOwner
+    //     logs
+    //     lock
+    //     virtual
+    // {
+    //     createPoolInternal(initialSupply);
+    // }
 
     /**
      * @notice Update the weight of an existing token
