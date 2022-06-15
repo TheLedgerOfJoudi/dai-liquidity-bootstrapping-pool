@@ -4,6 +4,7 @@ const { ethers } = require('hardhat');
 const Decimal = require('decimal.js');
 const web3 = require("web3");
 const fs = require('fs');
+const { utils } = require('web3');
 // Refer to this article for background:
 // https://medium.com/balancer-protocol/building-liquidity-into-token-distribution-a49d4286e0d4
 
@@ -185,7 +186,10 @@ describe('Liquidity Bootstrapping', () => {
        out.
     */
     describe('Factory_LBP (nonlinear)', function () {
-        this.timeout(200000);
+        this.timeout(600000);
+        const sleep = (milliseconds) => {
+            return new Promise(resolve => setTimeout(resolve, milliseconds))
+        }
         let controller;
         let CONTROLLER;
         let BPool;
@@ -193,9 +197,6 @@ describe('Liquidity Bootstrapping', () => {
         let DAI;
         let dai;
         let xyz;
-        const sleep = (milliseconds) => {
-            return new Promise(resolve => setTimeout(resolve, milliseconds))
-        }
 
         const startWeights = [web3.utils.toWei('32'), web3.utils.toWei('8')];
         const startBalances = [web3.utils.toWei('4000'), web3.utils.toWei('1000')];
@@ -233,7 +234,8 @@ describe('Liquidity Bootstrapping', () => {
 
             const admin = accounts[0].address;
 
-            const MAX = web3.utils.toTwosComplement(-1);
+            // const MAX = web3.utils.toTwosComplement(-1);
+            const MAX = web3.utils.toWei('1000000');
             const SYMBOL = 'LBP';
             const NAME = 'Balancer Pool Token';
 
@@ -281,11 +283,16 @@ describe('Liquidity Bootstrapping', () => {
             // );
 
             let configurableRightsPool = await ConfigurableRightsPool.deploy(bFactory.address, poolParams, permissions);
-            let file = fs.readFileSync('../artifacts/contracts/ConfigurableRightsPool.sol/ConfigurableRightsPool.json');
-            let metadata = JSON.parse(file);
-            abi = metadata.abi;
-            controller = await new ethers.Contract(configurableRightsPool.address, abi, accounts[0]);
-
+            console.log(configurableRightsPool)
+            // configurableRightsPool.wait();
+            // let file = fs.readFileSync('../artifacts/contracts/ConfigurableRightsPool.sol/ConfigurableRightsPool.json');
+            // let metadata = JSON.parse(file);
+            // abi = metadata.abi;
+            sleep(20000)
+            controller = await new ethers.Contract(configurableRightsPool.address, ConfigurableRightsPool.interface, accounts[0]);
+            sleep(20000)
+            controller.deployTransaction = configurableRightsPool.deployTransaction;
+            controller = await controller.deployed()
             // controller = ConfigurableRightsPool.attach(CONTROLLER);
             // console.log(ConfigurableRightsPool)
             const CONTROLLER_ADDRESS = controller.address;
@@ -299,13 +306,18 @@ describe('Liquidity Bootstrapping', () => {
             // await controller.callStatic.getRightsManagerVersion();
             await dai.approve(CONTROLLER_ADDRESS, MAX);
             await xyz.approve(CONTROLLER_ADDRESS, MAX);
+            console.log(CONTROLLER_ADDRESS)
+            sleep(20000)
+            let inf = new ethers.providers.InfuraProvider("rinkeby", "61e4f78a7e1249f89f01def30db4c551")
+            let code = await inf.getCode(CONTROLLER_ADDRESS)
+            console.log(code)
             // controller["deployTransaction"] = configurableRightsPool;
-            let pool = await controller.bFactory();
+            let pool = await controller.functions.getBalancerSafeMathVersion();
             console.log(pool);
             const tx = await controller.createPool(web3.utils.toWei('1000'), 10, 10);
             // tx.wait();
             sleep(12000);
-            let p = await controller.bFactory();
+            let p = await controller.functions.getBalancerSafeMathVersion();
             console.log(p);
         });
 
