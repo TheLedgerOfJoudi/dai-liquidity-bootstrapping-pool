@@ -1,0 +1,25 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: CRPFactory
+    network: kovan
+    source:
+      address: "0xcb5A8717c47359982d3576724bf8dC789DeccD21"
+      abi: CRPFactory
+      startBlock: 32276450
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Crp
+        - User
+      abis:
+        - name: CRPFactory
+          file: ./abis/CRPFactory.json
+      eventHandlers:
+        - event: LogNewCrp(indexed address,indexed address)
+          handler: handleLogNewCrp
+      file: ./src/crp-factory.ts
