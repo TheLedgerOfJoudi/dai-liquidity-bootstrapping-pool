@@ -1,0 +1,8 @@
+query getAllPools {
+  crps {
+    id
+    creator {
+      id
+    }
+  }
+}

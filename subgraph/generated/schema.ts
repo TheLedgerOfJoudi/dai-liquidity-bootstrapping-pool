@@ -42,15 +42,6 @@ export class Crp extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get address(): string {
-    let value = this.get("address");
-    return value!.toString();
-  }
-
-  set address(value: string) {
-    this.set("address", Value.fromString(value));
-  }
-
   get creator(): string {
     let value = this.get("creator");
     return value!.toString();
@@ -90,15 +81,6 @@ export class User extends Entity {
 
   set id(value: string) {
     this.set("id", Value.fromString(value));
-  }
-
-  get address(): string {
-    let value = this.get("address");
-    return value!.toString();
-  }
-
-  set address(value: string) {
-    this.set("address", Value.fromString(value));
   }
 
   get crps(): Array<string> | null {

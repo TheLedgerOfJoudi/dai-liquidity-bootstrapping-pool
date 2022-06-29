@@ -11,13 +11,10 @@ export function handleLogNewCrp(event: LogNewCrp): void {
   // `null` checks allow to create entities on demand
   if (!entity) {
     entity = new Crp(event.params.pool.toHex())
-
-    // Entity fields can be set using simple assignments
-    entity.address = ""
   }
 
   // BigInt and BigDecimal math are supported
-  entity.address = event.params.pool.toHex()
+  entity.id = event.params.pool.toHex()
 
   // Entity fields can be set based on event parameters
   entity.creator = event.params.caller.toHex()
@@ -30,8 +27,6 @@ export function handleLogNewCrp(event: LogNewCrp): void {
   if (!user) {
     user = new User(event.params.caller.toHex())
   }
-  
-  user.address = event.params.caller.toHex()
 
   user.save()
 

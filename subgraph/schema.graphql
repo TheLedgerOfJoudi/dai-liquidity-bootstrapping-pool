@@ -1,11 +1,9 @@
 type Crp @entity {
   id: ID!
-  address: String!
   creator: User!
 }
 
 type User @entity {
 id: ID!
-address: String!
 crps: [Crp!] @derivedFrom(field: "creator")
 }
