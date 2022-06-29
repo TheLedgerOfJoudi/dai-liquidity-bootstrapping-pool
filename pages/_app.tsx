@@ -1,16 +1,18 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ApolloProvider } from "@apollo/client";
+import { WagmiConfig } from "wagmi";
+import { useApolloClient } from "../lib/apolloClient";
+import { useWagmiClient } from "../lib/wagmiClient";
 
-import { useClient } from "../lib/client";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const apolloClient = useClient();
+  const wagmiClient = useWagmiClient();
 
   return (
-    <ApolloProvider client={apolloClient}>
-      <Component {...pageProps} /> 
-    </ApolloProvider>
+    <WagmiConfig client={wagmiClient}>
+    <Component {...pageProps} />
+  </WagmiConfig>
   );
 }
 
