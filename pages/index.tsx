@@ -1,12 +1,9 @@
 import type { NextPage } from "next";
 import { useGetAllPoolsQuery } from "../src/generated/graphql";
-import {
-  Key,
-  useEffect,
-  useState,
-} from "react";
+import { Key, useEffect, useState } from "react";
 import { useApolloClient } from "../lib/apolloClient";
 import { ConnectWallet } from "../src/components/ConnectWallet";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const [pools, setPools] = useState<any>();
@@ -72,8 +69,12 @@ const Home: NextPage = () => {
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                           {index + 1}
                         </td>
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {crp.id}
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap underline">
+                          {
+                            <Link href={`pools/${crp.id}`}>
+                              <a target="_blank">{crp.id} </a>
+                            </Link>
+                          }
                         </td>
                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           {crp.creator.id}
