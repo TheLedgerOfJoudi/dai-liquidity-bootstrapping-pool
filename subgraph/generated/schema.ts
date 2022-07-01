@@ -50,6 +50,60 @@ export class Crp extends Entity {
   set creator(value: string) {
     this.set("creator", Value.fromString(value));
   }
+
+  get token(): string {
+    let value = this.get("token");
+    return value!.toString();
+  }
+
+  set token(value: string) {
+    this.set("token", Value.fromString(value));
+  }
+
+  get firstTokenBalance(): string {
+    let value = this.get("firstTokenBalance");
+    return value!.toString();
+  }
+
+  set firstTokenBalance(value: string) {
+    this.set("firstTokenBalance", Value.fromString(value));
+  }
+
+  get secondTokenBalance(): string {
+    let value = this.get("secondTokenBalance");
+    return value!.toString();
+  }
+
+  set secondTokenBalance(value: string) {
+    this.set("secondTokenBalance", Value.fromString(value));
+  }
+
+  get firstTokenWeight(): string {
+    let value = this.get("firstTokenWeight");
+    return value!.toString();
+  }
+
+  set firstTokenWeight(value: string) {
+    this.set("firstTokenWeight", Value.fromString(value));
+  }
+
+  get secondTokenWeight(): string {
+    let value = this.get("secondTokenWeight");
+    return value!.toString();
+  }
+
+  set secondTokenWeight(value: string) {
+    this.set("secondTokenWeight", Value.fromString(value));
+  }
+
+  get swapFee(): string {
+    let value = this.get("swapFee");
+    return value!.toString();
+  }
+
+  set swapFee(value: string) {
+    this.set("swapFee", Value.fromString(value));
+  }
 }
 
 export class User extends Entity {

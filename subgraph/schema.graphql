@@ -1,6 +1,12 @@
 type Crp @entity {
   id: ID!
   creator: User!
+  token: String!
+  firstTokenBalance: String!
+  secondTokenBalance: String!
+  firstTokenWeight: String!
+  secondTokenWeight: String!
+  swapFee: String!
 }
 
 type User @entity {

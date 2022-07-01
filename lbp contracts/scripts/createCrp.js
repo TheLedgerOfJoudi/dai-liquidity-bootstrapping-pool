@@ -8,7 +8,7 @@ async function createCrp() {
     let abi = JSON.parse(file);
     abi = abi.abi;
     const factory = await new ethers.Contract(
-        "0xcb5A8717c47359982d3576724bf8dC789DeccD21",
+        "0xC5748A4C5028b516D283ddCbBf6dCE73DfCAed24",
         abi,
         signer);
 

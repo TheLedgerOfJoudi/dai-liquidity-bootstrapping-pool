@@ -1,5 +1,5 @@
-query getAllPools {
-  crps {
+query getPoolById ($id:ID) {
+  crps (where: {id:$id}) {
     id
     creator {
       id

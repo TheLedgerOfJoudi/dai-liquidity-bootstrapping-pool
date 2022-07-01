@@ -6,9 +6,9 @@ dataSources:
     name: CRPFactory
     network: kovan
     source:
-      address: "0xcb5A8717c47359982d3576724bf8dC789DeccD21"
+      address: "0xC5748A4C5028b516D283ddCbBf6dCE73DfCAed24"
       abi: CRPFactory
-      startBlock: 32276450
+      startBlock: 32487309
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -20,6 +20,6 @@ dataSources:
         - name: CRPFactory
           file: ./abis/CRPFactory.json
       eventHandlers:
-        - event: LogNewCrp(indexed address,indexed address)
+        - event: LogNewCrp(indexed address,indexed address,indexed address,uint256,uint256,uint256,uint256,uint256)
           handler: handleLogNewCrp
       file: ./src/crp-factory.ts

@@ -31,13 +31,20 @@ export type Block_Height = {
 export type Crp = {
   __typename?: 'Crp';
   creator: User;
+  firstTokenBalance: Scalars['String'];
+  firstTokenWeight: Scalars['String'];
   id: Scalars['ID'];
+  secondTokenBalance: Scalars['String'];
+  secondTokenWeight: Scalars['String'];
+  swapFee: Scalars['String'];
+  token: Scalars['String'];
 };
 
 export type Crp_Filter = {
   /** Filter for the block changed event. */
   _change_block?: InputMaybe<BlockChangedFilter>;
   creator?: InputMaybe<Scalars['String']>;
+  creator_?: InputMaybe<User_Filter>;
   creator_contains?: InputMaybe<Scalars['String']>;
   creator_contains_nocase?: InputMaybe<Scalars['String']>;
   creator_ends_with?: InputMaybe<Scalars['String']>;
@@ -57,6 +64,46 @@ export type Crp_Filter = {
   creator_not_starts_with_nocase?: InputMaybe<Scalars['String']>;
   creator_starts_with?: InputMaybe<Scalars['String']>;
   creator_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  firstTokenBalance?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_contains?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_contains_nocase?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_ends_with?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_gt?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_gte?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_in?: InputMaybe<Array<Scalars['String']>>;
+  firstTokenBalance_lt?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_lte?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_not?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_not_contains?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_not_contains_nocase?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_not_ends_with?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_not_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_not_in?: InputMaybe<Array<Scalars['String']>>;
+  firstTokenBalance_not_starts_with?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_not_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_starts_with?: InputMaybe<Scalars['String']>;
+  firstTokenBalance_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  firstTokenWeight?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_contains?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_contains_nocase?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_ends_with?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_gt?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_gte?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_in?: InputMaybe<Array<Scalars['String']>>;
+  firstTokenWeight_lt?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_lte?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_not?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_not_contains?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_not_contains_nocase?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_not_ends_with?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_not_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_not_in?: InputMaybe<Array<Scalars['String']>>;
+  firstTokenWeight_not_starts_with?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_not_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_starts_with?: InputMaybe<Scalars['String']>;
+  firstTokenWeight_starts_with_nocase?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
   id_gt?: InputMaybe<Scalars['ID']>;
   id_gte?: InputMaybe<Scalars['ID']>;
@@ -65,11 +112,97 @@ export type Crp_Filter = {
   id_lte?: InputMaybe<Scalars['ID']>;
   id_not?: InputMaybe<Scalars['ID']>;
   id_not_in?: InputMaybe<Array<Scalars['ID']>>;
+  secondTokenBalance?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_contains?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_contains_nocase?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_ends_with?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_gt?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_gte?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_in?: InputMaybe<Array<Scalars['String']>>;
+  secondTokenBalance_lt?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_lte?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_not?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_not_contains?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_not_contains_nocase?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_not_ends_with?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_not_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_not_in?: InputMaybe<Array<Scalars['String']>>;
+  secondTokenBalance_not_starts_with?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_not_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_starts_with?: InputMaybe<Scalars['String']>;
+  secondTokenBalance_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  secondTokenWeight?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_contains?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_contains_nocase?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_ends_with?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_gt?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_gte?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_in?: InputMaybe<Array<Scalars['String']>>;
+  secondTokenWeight_lt?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_lte?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_not?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_not_contains?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_not_contains_nocase?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_not_ends_with?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_not_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_not_in?: InputMaybe<Array<Scalars['String']>>;
+  secondTokenWeight_not_starts_with?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_not_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_starts_with?: InputMaybe<Scalars['String']>;
+  secondTokenWeight_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  swapFee?: InputMaybe<Scalars['String']>;
+  swapFee_contains?: InputMaybe<Scalars['String']>;
+  swapFee_contains_nocase?: InputMaybe<Scalars['String']>;
+  swapFee_ends_with?: InputMaybe<Scalars['String']>;
+  swapFee_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  swapFee_gt?: InputMaybe<Scalars['String']>;
+  swapFee_gte?: InputMaybe<Scalars['String']>;
+  swapFee_in?: InputMaybe<Array<Scalars['String']>>;
+  swapFee_lt?: InputMaybe<Scalars['String']>;
+  swapFee_lte?: InputMaybe<Scalars['String']>;
+  swapFee_not?: InputMaybe<Scalars['String']>;
+  swapFee_not_contains?: InputMaybe<Scalars['String']>;
+  swapFee_not_contains_nocase?: InputMaybe<Scalars['String']>;
+  swapFee_not_ends_with?: InputMaybe<Scalars['String']>;
+  swapFee_not_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  swapFee_not_in?: InputMaybe<Array<Scalars['String']>>;
+  swapFee_not_starts_with?: InputMaybe<Scalars['String']>;
+  swapFee_not_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  swapFee_starts_with?: InputMaybe<Scalars['String']>;
+  swapFee_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  token?: InputMaybe<Scalars['String']>;
+  token_contains?: InputMaybe<Scalars['String']>;
+  token_contains_nocase?: InputMaybe<Scalars['String']>;
+  token_ends_with?: InputMaybe<Scalars['String']>;
+  token_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  token_gt?: InputMaybe<Scalars['String']>;
+  token_gte?: InputMaybe<Scalars['String']>;
+  token_in?: InputMaybe<Array<Scalars['String']>>;
+  token_lt?: InputMaybe<Scalars['String']>;
+  token_lte?: InputMaybe<Scalars['String']>;
+  token_not?: InputMaybe<Scalars['String']>;
+  token_not_contains?: InputMaybe<Scalars['String']>;
+  token_not_contains_nocase?: InputMaybe<Scalars['String']>;
+  token_not_ends_with?: InputMaybe<Scalars['String']>;
+  token_not_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  token_not_in?: InputMaybe<Array<Scalars['String']>>;
+  token_not_starts_with?: InputMaybe<Scalars['String']>;
+  token_not_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  token_starts_with?: InputMaybe<Scalars['String']>;
+  token_starts_with_nocase?: InputMaybe<Scalars['String']>;
 };
 
 export enum Crp_OrderBy {
   Creator = 'creator',
-  Id = 'id'
+  FirstTokenBalance = 'firstTokenBalance',
+  FirstTokenWeight = 'firstTokenWeight',
+  Id = 'id',
+  SecondTokenBalance = 'secondTokenBalance',
+  SecondTokenWeight = 'secondTokenWeight',
+  SwapFee = 'swapFee',
+  Token = 'token'
 }
 
 /** Defines the order direction, either ascending or descending */
@@ -198,6 +331,7 @@ export type UserCrpsArgs = {
 export type User_Filter = {
   /** Filter for the block changed event. */
   _change_block?: InputMaybe<BlockChangedFilter>;
+  crps_?: InputMaybe<Crp_Filter>;
   id?: InputMaybe<Scalars['ID']>;
   id_gt?: InputMaybe<Scalars['ID']>;
   id_gte?: InputMaybe<Scalars['ID']>;
@@ -248,7 +382,14 @@ export enum _SubgraphErrorPolicy_ {
 export type GetAllPoolsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllPoolsQuery = { __typename?: 'Query', crps: Array<{ __typename?: 'Crp', id: string, creator: { __typename?: 'User', id: string } }> };
+export type GetAllPoolsQuery = { __typename?: 'Query', crps: Array<{ __typename?: 'Crp', id: string, token: string, firstTokenBalance: string, firstTokenWeight: string, secondTokenBalance: string, secondTokenWeight: string, swapFee: string, creator: { __typename?: 'User', id: string } }> };
+
+export type GetPoolByIdQueryVariables = Exact<{
+  id?: InputMaybe<Scalars['ID']>;
+}>;
+
+
+export type GetPoolByIdQuery = { __typename?: 'Query', crps: Array<{ __typename?: 'Crp', id: string, token: string, firstTokenBalance: string, firstTokenWeight: string, secondTokenBalance: string, secondTokenWeight: string, swapFee: string, creator: { __typename?: 'User', id: string } }> };
 
 
 export const GetAllPoolsDocument = gql`
@@ -258,6 +399,12 @@ export const GetAllPoolsDocument = gql`
     creator {
       id
     }
+    token
+    firstTokenBalance
+    firstTokenWeight
+    secondTokenBalance
+    secondTokenWeight
+    swapFee
   }
 }
     `;
@@ -288,3 +435,47 @@ export function useGetAllPoolsLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type GetAllPoolsQueryHookResult = ReturnType<typeof useGetAllPoolsQuery>;
 export type GetAllPoolsLazyQueryHookResult = ReturnType<typeof useGetAllPoolsLazyQuery>;
 export type GetAllPoolsQueryResult = Apollo.QueryResult<GetAllPoolsQuery, GetAllPoolsQueryVariables>;
+export const GetPoolByIdDocument = gql`
+    query getPoolById($id: ID) {
+  crps(where: {id: $id}) {
+    id
+    creator {
+      id
+    }
+    token
+    firstTokenBalance
+    firstTokenWeight
+    secondTokenBalance
+    secondTokenWeight
+    swapFee
+  }
+}
+    `;
+
+/**
+ * __useGetPoolByIdQuery__
+ *
+ * To run a query within a React component, call `useGetPoolByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPoolByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPoolByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetPoolByIdQuery(baseOptions?: Apollo.QueryHookOptions<GetPoolByIdQuery, GetPoolByIdQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPoolByIdQuery, GetPoolByIdQueryVariables>(GetPoolByIdDocument, options);
+      }
+export function useGetPoolByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPoolByIdQuery, GetPoolByIdQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPoolByIdQuery, GetPoolByIdQueryVariables>(GetPoolByIdDocument, options);
+        }
+export type GetPoolByIdQueryHookResult = ReturnType<typeof useGetPoolByIdQuery>;
+export type GetPoolByIdLazyQueryHookResult = ReturnType<typeof useGetPoolByIdLazyQuery>;
+export type GetPoolByIdQueryResult = Apollo.QueryResult<GetPoolByIdQuery, GetPoolByIdQueryVariables>;

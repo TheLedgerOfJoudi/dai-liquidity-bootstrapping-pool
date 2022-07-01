@@ -35,7 +35,13 @@ contract CRPFactory {
     // Log the address of each new smart pool, and its creator
     event LogNewCrp(
         address indexed caller,
-        address indexed pool
+        address indexed pool,
+        address indexed token,
+        uint firstTokenBalance,
+        uint secondTokenBalance,
+        uint firstTokenWeight,
+        uint secondTokenWeight,
+        uint swapFee
     );
 
     // Function declarations
@@ -67,7 +73,15 @@ contract CRPFactory {
             rights
         );
 
-        emit LogNewCrp(msg.sender, address(crp));
+        emit LogNewCrp(msg.sender,
+         address(crp),
+          poolParams.constituentTokens[0],
+          poolParams.tokenBalances[0],
+          poolParams.tokenBalances[1],
+          poolParams.tokenWeights[0],
+          poolParams.tokenWeights[1],
+          poolParams.swapFee
+                     );
 
         _isCrp[address(crp)] = true;
         // The caller is the controller of the CRP

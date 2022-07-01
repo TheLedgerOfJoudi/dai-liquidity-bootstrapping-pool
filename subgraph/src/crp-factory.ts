@@ -19,6 +19,17 @@ export function handleLogNewCrp(event: LogNewCrp): void {
   // Entity fields can be set based on event parameters
   entity.creator = event.params.caller.toHex()
 
+  entity.token = event.params.token.toHex()
+
+  entity.firstTokenBalance = event.params.firstTokenBalance.toString()
+
+  entity.secondTokenBalance = event.params.secondTokenBalance.toString()
+
+  entity.firstTokenWeight = event.params.firstTokenWeight.toString()
+
+  entity.secondTokenWeight = event.params.secondTokenWeight.toString()
+
+  entity.swapFee = event.params.swapFee.toString()
   // Entities can be written to the store with `.save()`
   entity.save()
 
